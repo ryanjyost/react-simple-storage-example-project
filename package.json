@@ -2,7 +2,7 @@
   "name": "react-simple-storage-example-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ryanjyost.github.io/react-simple-storage",
+  "homepage": "https://ryanjyost.github.io/react-simple-storage",
   "dependencies": {
     "prismjs": "^1.13.0",
     "react": "^16.2.0",
