@@ -11,6 +11,7 @@ import {
   Button
 } from "react-bootstrap";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
+import GithubIcon from "react-icons/lib/fa/github";
 
 import SimpleStorage, {
   clearStorage,
@@ -44,20 +45,75 @@ export default class App extends Component {
           className="show-grid"
           style={{ backgroundColor: "#20232a", padding: 20 }}
         >
-          <div style={{ maxWidth: 1000, margin: "auto", padding: "0px 50px" }}>
-            <h3 style={{ color: "#61dafb", fontWeight: "bold" }}>
-              React Simple Storage
-            </h3>
-            <p style={{ color: "#f2f2f2" }}>
-              Simple drop-in component and helper functions for using
-              localStorage with React.
-            </p>
+          <div
+            style={{
+              maxWidth: 1000,
+              margin: "auto",
+              padding: "0px 50px",
+              display: "flex",
+              justifyContent: "space-between"
+            }}
+          >
+            <div style={{ width: "100%" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  justifyContent: "space-between"
+                }}
+              >
+                <h3
+                  style={{
+                    color: "#61dafb",
+                    fontWeight: "bold",
+                    marginRight: 20
+                  }}
+                >
+                  React Simple Storage
+                </h3>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <div style={{ marginRight: 20 }}>
+                    <a
+                      style={{ marginRight: 20 }}
+                      href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                      className="twitter-share-button"
+                      data-text="Simple component and helper functions for using localStorage with React."
+                      data-url="https://ryanjyost.github.io/react-simple-storage/"
+                      data-related="ryanjyost"
+                      data-show-count="false"
+                    >
+                      Tweet
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      className="github-button"
+                      href="https://github.com/ryanjyost/react-simple-storage"
+                      data-icon="octicon-star"
+                      aria-label="Star react-simple-storage on GitHub"
+                    >
+                      Star
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style={{ color: "#f2f2f2" }}>
+                Simple component and helper functions for using
+                localStorage with React.
+              </p>
+            </div>
           </div>
         </Row>
       );
     };
 
-    const renderContructor = () => {
+    const renderConstructor = () => {
       return (
         <Col
           xs={12}
@@ -167,7 +223,7 @@ export default class App extends Component {
                 backgroundColor: "#EFF4FF"
               }}
             >
-              {"<SimpleStorage "}
+              <strong>{"<SimpleStorage "}</strong>
             </code>
           </div>
           <Row>
@@ -250,7 +306,7 @@ export default class App extends Component {
                 backgroundColor: "#EFF4FF"
               }}
             >
-              {" />"}
+              <strong>{" />"}</strong>
             </code>
           </div>
         </Col>
@@ -292,7 +348,7 @@ class ParentComponent extends Component {
           onChange={e => this.setState({ password: e.target.value })}
         />
 
-        <button onClick={() => resetParentState(this, this.initialState, ['password'])}>
+        <button onClick={() => resetParentState(this, this.initialState, ['text'])}>
 					resetParentState
 				</button>
 
@@ -351,7 +407,7 @@ class ParentComponent extends Component {
             </div>
             <Row className="show-grid" style={{ padding: "20px 5%" }}>
               {/*  ================ Constructor ================ */}
-              {renderContructor()}
+              {renderConstructor()}
               {/*  ================ SimpleStorage ================ */}
               {renderStorageForm()}
             </Row>
