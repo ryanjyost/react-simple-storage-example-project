@@ -24,20 +24,20 @@ export default class App extends Component {
     this.state = {
       text: "Initial Text",
       password: "",
-      blacklist: ["password"],
-      ignoreList: [],
-      blacklistText: false,
-      ignoreText: false,
-      blacklistPassword: true,
-      ignorePassword: false
+      ReactSimpleStorage_blacklist: ["password"],
+			ReactSimpleStorage_ignoreList: [],
+      ReactSimpleStorage_blacklistText: false,
+      ReactSimpleStorage_ignoreText: false,
+      ReactSimpleStorage_blacklistPassword: true,
+      ReactSimpleStorage_ignorePassword: false
     };
 
     this.initialState = this.state;
   }
 
   render() {
-    const formattedBlacklist = JSON.stringify(this.state.blacklist);
-    const formattedIgnorelist = JSON.stringify(this.state.ignoreList);
+    const formattedBlacklist = JSON.stringify(this.state.ReactSimpleStorage_blacklist);
+    const formattedIgnorelist = JSON.stringify(this.state.ReactSimpleStorage_ignoreList);
 
     const renderHeader = () => {
       return (
@@ -365,9 +365,9 @@ class ParentComponent extends Component {
         {renderHeader()}
         <div style={{ maxWidth: 1000 }}>
           <SimpleStorage
-            parent={this}
-            prefix={"ParentComponent"}
-            blacklist={this.state.blacklist}
+              parent={this}
+              prefix="ParentComponent"
+              blacklist={this.state.ReactSimpleStorage_blacklist}
           />
         </div>
         <Row
@@ -424,10 +424,10 @@ class ParentComponent extends Component {
                     <div>Text</div>
                     <FormGroup style={{ marginBottom: 2, fontSize: 12 }}>
                       <Checkbox
-                        checked={this.state.blacklistText}
+                        checked={this.state.ReactSimpleStorage_blacklistText}
                         onChange={e => {
-                          let blacklist = [...this.state.blacklist];
-                          if (this.state.blacklistText) {
+                          let blacklist = [...this.state.ReactSimpleStorage_blacklist];
+                          if (this.state.ReactSimpleStorage_blacklistText) {
                             let newList = blacklist.filter(item => {
                               if (item === "text") {
                                 return null;
@@ -435,13 +435,13 @@ class ParentComponent extends Component {
                                 return item;
                               }
                             });
-                            this.setState({ blacklist: newList });
+                            this.setState({ ReactSimpleStorage_blacklist: newList });
                           } else {
                             blacklist.push("text");
-                            this.setState({ blacklist: blacklist });
+                            this.setState({ ReactSimpleStorage_blacklist: blacklist });
                           }
                           this.setState({
-                            blacklistText: !this.state.blacklistText
+                            ReactSimpleStorage_blacklistText: !this.state.ReactSimpleStorage_blacklistText
                           });
                         }}
                         inline
@@ -449,10 +449,10 @@ class ParentComponent extends Component {
                         blacklist
                       </Checkbox>{" "}
                       <Checkbox
-                        checked={this.state.ignoreText}
+                        checked={this.state.ReactSimpleStorage_ignoreText}
                         onChange={e => {
-                          let ignoreList = [...this.state.ignoreList];
-                          if (this.state.ignoreText) {
+                          let ignoreList = [...this.state.ReactSimpleStorage_ignoreList];
+                          if (this.state.ReactSimpleStorage_ignoreText) {
                             let newList = ignoreList.filter(item => {
                               if (item === "text") {
                                 return null;
@@ -460,13 +460,13 @@ class ParentComponent extends Component {
                                 return item;
                               }
                             });
-                            this.setState({ ignoreList: newList });
+                            this.setState({ ReactSimpleStorage_ignoreList: newList });
                           } else {
                             ignoreList.push("text");
-                            this.setState({ ignoreList: ignoreList });
+                            this.setState({ ReactSimpleStorage_ignoreList: ignoreList });
                           }
                           this.setState({
-                            ignoreText: !this.state.ignoreText
+                            ReactSimpleStorage_ignoreText: !this.state.ReactSimpleStorage_ignoreText
                           });
                         }}
                         inline
@@ -493,10 +493,10 @@ class ParentComponent extends Component {
                     <div>Password</div>
                     <FormGroup style={{ marginBottom: 2, fontSize: 12 }}>
                       <Checkbox
-                        checked={this.state.blacklistPassword}
+                        checked={this.state.ReactSimpleStorage_blacklistPassword}
                         onChange={e => {
-                          let blacklist = [...this.state.blacklist];
-                          if (this.state.blacklistPassword) {
+                          let blacklist = [...this.state.ReactSimpleStorage_blacklist];
+                          if (this.state.ReactSimpleStorage_blacklistPassword) {
                             let newList = blacklist.filter(item => {
                               if (item === "password") {
                                 return null;
@@ -504,13 +504,13 @@ class ParentComponent extends Component {
                                 return item;
                               }
                             });
-                            this.setState({ blacklist: newList });
+                            this.setState({ ReactSimpleStorage_blacklist: newList });
                           } else {
                             blacklist.push("password");
-                            this.setState({ blacklist: blacklist });
+                            this.setState({ ReactSimpleStorage_blacklist: blacklist });
                           }
                           this.setState({
-                            blacklistPassword: !this.state.blacklistPassword
+                            ReactSimpleStorage_blacklistPassword: !this.state.ReactSimpleStorage_blacklistPassword
                           });
                         }}
                         inline
@@ -518,10 +518,10 @@ class ParentComponent extends Component {
                         blacklist
                       </Checkbox>{" "}
                       <Checkbox
-                        checked={this.state.ignorePassword}
+                        checked={this.state.ReactSimpleStorage_ignorePassword}
                         onChange={e => {
-                          let ignoreList = [...this.state.ignoreList];
-                          if (this.state.ignorePassword) {
+                          let ignoreList = [...this.state.ReactSimpleStorage_ignoreList];
+                          if (this.state.ReactSimpleStorage_ignorePassword) {
                             let newList = ignoreList.filter(item => {
                               if (item === "password") {
                                 return null;
@@ -529,13 +529,13 @@ class ParentComponent extends Component {
                                 return item;
                               }
                             });
-                            this.setState({ ignoreList: newList });
+                            this.setState({ ReactSimpleStorage_ignoreList: newList });
                           } else {
                             ignoreList.push("password");
-                            this.setState({ ignoreList: ignoreList });
+                            this.setState({ ReactSimpleStorage_ignoreList: ignoreList });
                           }
                           this.setState({
-                            ignorePassword: !this.state.ignorePassword
+                            ReactSimpleStorage_ignorePassword: !this.state.ReactSimpleStorage_ignorePassword
                           });
                         }}
                         inline
@@ -557,14 +557,14 @@ class ParentComponent extends Component {
                   <Button
                     onClick={() =>
                       resetParentState(this, this.initialState, [
-                        ...this.state.ignoreList,
+                        ...this.state.ReactSimpleStorage_ignoreList,
                         ...[
-                          "blacklist",
-                          "ignoreList",
-                          "blacklistText",
-                          "ignoreText",
-                          "blacklistPassword",
-                          "ignorePassword"
+                          "ReactSimpleStorage_blacklist",
+                          "ReactSimpleStorage_ignoreList",
+                          "ReactSimpleStorage_blacklistText",
+                          "ReactSimpleStorage_ignoreText",
+                          "ReactSimpleStorage_blacklistPassword",
+                          "ReactSimpleStorage_ignorePassword"
                         ]
                       ])
                     }
@@ -582,7 +582,7 @@ class ParentComponent extends Component {
                     }}
                   >
                     <code>
-                      function(<strong>parent</strong>:string|required,{" "}
+                      function(<strong>parent</strong>:object|required,{" "}
                       <strong>initialState</strong>:object|required,{" "}
                       <strong>keysToIgnore</strong>:array|optional)
                     </code>
