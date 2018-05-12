@@ -84,7 +84,7 @@ export default class App extends Component {
                       style={{ marginRight: 20 }}
                       href="https://twitter.com/share?ref_src=twsrc%5Etfw"
                       className="twitter-share-button"
-                      data-text="Simple component and helper functions for using localStorage with React."
+                      data-text="Simple component and helper functions for using web storage with React."
                       data-url="https://ryanjyost.github.io/react-simple-storage/"
                       data-related="ryanjyost"
                       data-show-count="false"
@@ -105,8 +105,8 @@ export default class App extends Component {
                 </div>
               </div>
               <p style={{ color: "#f2f2f2" }}>
-                Simple component and helper functions for using localStorage
-                with React.
+                Simple component and helper functions for using web storage with
+                React.
               </p>
             </div>
           </div>
@@ -266,9 +266,9 @@ export default class App extends Component {
                 <code>string</code>
                 <span style={{ color: "#888888" }}>
                   {" "}
-                  <strong>optional:</strong> prefix for localStorage keys
-                  created and updated by this instance of SimpleStorage. Helps
-                  avoid name conflicts.{" "}
+                  <strong>optional:</strong> prefix for storage keys created and
+                  updated by this instance of SimpleStorage. Helps avoid name
+                  conflicts.{" "}
                 </span>
               </div>
               <hr style={{ margin: "10px 0px 5px 0px" }} />
@@ -646,8 +646,8 @@ class ParentComponent extends Component {
                     </code>
                     <span style={{ color: "#888888" }}>
                       {" "}
-                      removes all items from localStorage. If optional{" "}
-                      <code>prefix</code> is provided, only removes localStorage
+                      removes all items from storage. If optional{" "}
+                      <code>prefix</code> is provided, only removes storage
                       items with that prefix.
                     </span>
                   </div>
