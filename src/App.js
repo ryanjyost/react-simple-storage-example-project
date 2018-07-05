@@ -75,7 +75,6 @@ export default class App extends Component {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "baseline",
                     justifyContent: "space-between"
                   }}
                 >
@@ -290,6 +289,26 @@ export default class App extends Component {
                 </span>
               </div>
               <hr style={{ margin: "10px 0px 5px 0px" }} />
+              <div style={{}}>
+                <h5 style={{ color: "rgb(32, 35, 42)" }}>
+                  onParentStateHydrated =
+                </h5>
+                <pre
+                  style={{
+                    margin: "0px 5px 5px 5px",
+                    padding: "2px 5px"
+                  }}
+                >{`() => console.log("Parent's state hydrated with storage")`}</pre>
+              </div>
+              <div style={{ fontStyle: "italic", fontSize: 10 }}>
+                <code>func</code>
+                <span style={{ color: "#888888" }}>
+                  {" "}
+                  <strong>optional:</strong> fires after the parent's state has
+                  been hydrated with storage items.
+                </span>
+              </div>
+              <hr style={{ margin: "10px 0px 5px 0px" }} />
             </Col>
           </Row>
           <div
@@ -369,6 +388,13 @@ class ParentComponent extends Component {
             parent={this}
             prefix="ParentComponent"
             blacklist={this.state.ReactSimpleStorage_blacklist}
+            onParentStateHydrated={() =>
+              console.log(
+                "Parent state hydrated with storage!",
+                this.state.text,
+                this.state.password
+              )
+            }
           />
         </div>
         <Row
