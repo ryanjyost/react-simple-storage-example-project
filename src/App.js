@@ -21,6 +21,7 @@ export default class App extends Component {
     this.state = {
       text: "Initial Text",
       password: "",
+      map: new Map([[1, "1"], [2, "2"]]),
       ReactSimpleStorage_blacklist: ["password"],
       ReactSimpleStorage_ignoreList: [],
       ReactSimpleStorage_blacklistText: false,
@@ -389,11 +390,7 @@ class ParentComponent extends Component {
             prefix="ParentComponent"
             blacklist={this.state.ReactSimpleStorage_blacklist}
             onParentStateHydrated={() =>
-              console.log(
-                "Parent state hydrated with storage!",
-                this.state.text,
-                this.state.password
-              )
+              console.log("Parent state hydrated with storage!")
             }
           />
         </div>
